@@ -1,0 +1,12 @@
+<div class="h-100 w-100 sidenav-bar">
+    <ul class="list-unstyled">
+        <span class="d-flex gap-2 text-warning justify-content-center fs-2 align-items-center">
+            <i class="fa-regular fa-note-sticky fs-3"></i>
+            <p class="m-0">Notes</p>
+        </span>
+        <button (click)="logOut()">Logout</button>
+        <button [routerLink]="''">Signin</button>
+    </ul>
+    <app-language-switcher></app-language-switcher>
+</div>
+

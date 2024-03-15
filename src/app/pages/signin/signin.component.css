@@ -1,0 +1,45 @@
+.socials li {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(229, 225, 225, 0.825);
+    filter: drop-shadow(-9px 8px 4px #00000050);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.googleIcon{
+    color: red;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+.twitterIcon{
+    color: #1da0f2;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+.facebookIcon{
+    color: #4267B2;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}

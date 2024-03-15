@@ -1,0 +1,95 @@
+<section class="signup d-flex align-items-center vh-100">
+    <div class="container boxShadow">
+        <div class="signup-content row">
+            <div class="signup-form col-md-6">
+                <h2 class="form-title fs-2">Sign up</h2>
+                <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm" class="register-form mt-4" id="register-form">
+                    <div class="form-group d-flex align-items-center mb-4">
+                        <label for="name">
+                            <span class="fa-solid fa-user"></span>
+                        </label>
+                        <input formControlName="name" type="text" name="name" id="name" placeholder="Your Name" />
+                    </div>
+                    <p 
+                        *ngIf="(registerForm.get('name')?.errors && registerForm.get('name')?.touched) || formIsInvalid"
+                        class="alert alert-danger d-flex flex-column">
+                            <span *ngIf="registerForm.get('name')?.getError('required')">Required</span>
+                            <span *ngIf="registerForm.get('name')?.getError('minlength')">min Length 3 characters</span>
+                        <!-- {{registerForm.get('name')?.getError('required') | json}} -->
+                    </p>
+                    <div class="form-group d-flex align-items-center mb-4">
+                        <label for="email">
+                            <span class="fa-solid fa-envelope"></span>
+                        </label>
+                        <input formControlName="email" type="email" name="email" id="email" placeholder="Your Email" />
+                    </div>
+                    <p 
+                        *ngIf="(registerForm.get('email')?.errors && registerForm.get('email')?.touched) || formIsInvalid"
+                        class="alert alert-danger d-flex flex-column">
+                            <span *ngIf="registerForm.get('email')?.getError('required')">Required</span>
+                            <span *ngIf="registerForm.get('email')?.getError('email')">You should use a valid email</span>
+                        <!-- {{registerForm.get('name')?.getError('required') | json}} -->
+                    </p>
+                    <div class="form-group d-flex align-items-center mb-4">
+                        <label for="pass">
+                            <span class="fa-solid fa-lock"></span>
+                        </label>
+                        <input formControlName="password" type="password" name="password" id="password" placeholder="Password" />
+                    </div>
+                    <p 
+                        *ngIf="(registerForm.get('password')?.errors && registerForm.get('password')?.touched) || formIsInvalid"
+                        class="alert alert-danger d-flex flex-column">
+                            <span *ngIf="registerForm.get('password')?.getError('required')">Required</span>
+                            <span *ngIf="registerForm.get('password')?.getError('pattern')">
+                            * Must start with capital letter <br>
+                            * Contains more than 3 characters<br>
+                            * Max length 13 characters<br>
+                            * Don't use special characters
+                            </span>
+                        <!-- {{registerForm.get('name')?.getError('required') | json}} -->
+                    </p>
+                    <div class="form-group d-flex align-items-center mb-4">
+                        <label for="phone">
+                            <span class="fa-solid fa-phone"></span>
+                        </label>
+                        <input formControlName="phone" type="tel" name="phone" id="phone" placeholder="Phone" />
+                    </div>
+                    <p 
+                        *ngIf="(registerForm.get('phone')?.errors && registerForm.get('phone')?.touched) || formIsInvalid"
+                        class="alert alert-danger d-flex flex-column">
+                            <span *ngIf="registerForm.get('phone')?.getError('required')">Required</span>
+                            <span *ngIf="registerForm.get('phone')?.getError('pattern')">Must be an Egyptian Number</span>
+                        <!-- {{registerForm.get('name')?.getError('required') | json}} -->
+                    </p>
+                    <div class="form-group d-flex align-items-center mb-4">
+                        <label for="age">
+                            <span class="fa-solid fa-globe"></span>
+                        </label>
+                        <input formControlName="age" type="number" name="age" id="age" placeholder="Age" />
+                    </div>
+                    <p 
+                        *ngIf="(registerForm.get('age')?.errors && registerForm.get('age')?.touched) || formIsInvalid"
+                        class="alert alert-danger d-flex flex-column">
+                            <span *ngIf="registerForm.get('age')?.getError('required')">Required</span>
+                        <!-- {{registerForm.get('name')?.getError('required') | json}} -->
+                    </p>
+                    <div class="alert alert-danger" *ngIf="apiError">
+                        {{apiError}}
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <button [disabled]="registerForm.invalid"  class="btn btn-danger">
+                            <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+                            <span *ngIf="!isLoading">Register</span>
+                        </button>
+                        <p class="my-3">Already Have an account?
+                            <a (click)="navigateToSignInComponent()" class="text-info">Signin</a>
+                        </p> 
+                    </div>
+                </form>
+            </div>
+            <div class="signup-image col-md-6 d-flex justify-content-center">
+                <figure><img src="assets/images/signup-image.jpg" alt="sing up image"/></figure>
+            </div>
+        </div>
+    </div>
+</section>

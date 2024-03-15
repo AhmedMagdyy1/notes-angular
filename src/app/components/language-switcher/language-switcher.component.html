@@ -1,0 +1,6 @@
+<div class="d-flex gap-5">
+    <label class="align-self-center text-white" for="languageSelect">Selected Language:</label>
+    <select id="languageSelect" class="form-control" (change)="switchLanguage($event.target)">
+      <option *ngFor="let lang of supportedLanguages" [value]="lang.code">{{ lang.name }}</option>
+    </select>
+  </div>
